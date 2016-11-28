@@ -1,0 +1,15 @@
+A^x=B(mod C)(C是质数)，都是整数，已知A、B、C求x。
+
+1.令x = i * m + j, m = ceil(sqrt(C))
+  get A^(i*m+j)=B(mod C)
+  A^j=B*A^(-m*i) (mod C)， (把A^(mi)除过去)
+
+2.j from 0 -> m-1  计算 A^j ，(A^j, j)加入哈希表
+
+3.枚举B/(A^(mi))(mod C) 
+
+求逆元 x = (A^(mi))^(C-2);
+
+所以变成B*x
+
+4.即枚举i, 计算x， Bx，搜哈希表。
